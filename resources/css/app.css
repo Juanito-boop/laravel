@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+*, h1{
+    color: black;
+}
+
+.scroll-none {
+    scrollbar-width: none;
+}
+
+#menu.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scrollbar-width-none {
+    scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.texto-Black {
+    color: rgb(0,0,0);
+}
+
+.dis-none {
+   display: none;
+}
