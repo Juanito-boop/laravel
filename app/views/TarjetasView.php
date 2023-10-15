@@ -24,7 +24,7 @@ class TarjetasView
                 <div class="flex items-center justify-between">
                     <p class="mr-0 font-semibold font-poppins text-colorPrincipal_1 text-[0.9em]">$productPrice</p>
                     <a href="/info/$productId" class="mx-2">
-                        <button class="text-emerald-500 background-transparent font-semibold uppercase py-1 outline-none focus:outline-none ease-linear transition-all duration-150 border border-emerald-500 rounded-lg">&nbspINFORMACIÓN&nbsp</button>
+                        <button class="text-emerald-500 background-transparent font-semibold uppercase py-1 outline-none focus:outline-none ease-linear transition-all duration-150 border border-emerald-500 rounded-lg text-sm">&nbspINFORMACIÓN&nbsp</button>
                     </a>
                 </div>
             </div>
