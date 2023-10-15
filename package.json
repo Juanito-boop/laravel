@@ -6,7 +6,8 @@
         "build": "vite build",
         "start": "npm-run-all --parallel laravel tailwind",
         "laravel": "php artisan serve",
-        "tailwind": "npm run dev"
+        "tailwind": "npm run dev",
+        "otw": "npx tailwindcss -i ./resources/css/app.css -o ./public/css/output.css"
     },
     "devDependencies": {
         "@tailwindcss/aspect-ratio": "^0.4.2",

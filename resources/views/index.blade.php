@@ -4,27 +4,30 @@
 
 @section('content')
 
-  <body class="bg-colorPrincipal_2 font-inconsolata z-0">
-    <x-menu />
+  <body class="bg-colorPrincipal_2 font-inconsolata">
     {{-- componente header --}}
-    <x-header />
-    <section class="flex mx-2.5 my-0">
-
-      {{-- componente aside --}}
-      @component('components.aside', ['opciones' => $opciones])
-      @endcomponent
-      <main class="max-w-[84%] mx-[10px] rounded-[10px] bg-color11 scroll-none">
-        {{-- componente slider --}}
-        <x-slider />
-        {{-- tarjetas --}}
-        @component('components.tarjetas', ['vista' => $vista])
+    <x-menu />
+    <div id="principal">
+      <x-header />
+      {{-- componente banner --}}
+      <section class="flex mx-2.5 my-0">
+        {{-- componente aside --}}
+        @component('components.aside', ['opciones' => $opciones])
         @endcomponent
-      </main>
-    </section>
-    {{-- componente testimonials --}}
-    <x-testimonials />
-    {{-- componente footer --}}
-    <x-footer />
+        <main class="max-w-[84%] mx-[10px]  rounded-[10px] bg-color11 scroll-none">
+          {{-- componente slider --}}
+          <x-slider />
+          {{-- tarjetas --}}
+          @component('components.tarjetas', ['vista' => $vista])
+          @endcomponent
+        </main>
+      </section>
+      {{-- componente testimonials --}}
+      <x-testimonials />
+      {{-- componente footer --}}
+      <x-footer />
+    </div>
   </body>
+  <script src="https://npuxpuelimayqrsmzqur.supabase.co/storage/v1/object/public/images/js/tarjetas.js"></script>
 
 @endsection

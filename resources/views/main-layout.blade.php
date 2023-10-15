@@ -10,7 +10,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Poppins&family=Raleway&display=swap">
-  @vite(['resources/css/output.css', 'resources/js/app.js'])
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
+  <link rel="stylesheet" href="css/output.css">
+  <style>
+    ::-webkit-scrollbar { display: none; }
+    body {
+      background: rgb(99,21,92)
+    }
+  </style>
   <title>@yield('title')</title>
 </head>
 

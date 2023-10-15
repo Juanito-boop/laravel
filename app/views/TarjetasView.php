@@ -23,8 +23,8 @@ class TarjetasView
                 <p class="mb-2 text-[0.9em] font-poppins text-colorPrincipal_1">$productVariety</p>
                 <div class="flex items-center justify-between">
                     <p class="mr-0 font-semibold font-poppins text-colorPrincipal_1 text-[0.9em]">$productPrice</p>
-                    <a href="/info/$productId" class=" mx-2 rounded-[10px]">
-                        <button class="relative w-auto px-1 overflow-hidden text-xs text-green-400 border border-green-700 rounded-full shadow-2xl h-7 hover:bg-green-700 hover:text-[#7F1A77]">&nbspINFORMACIÓN&nbsp</button>
+                    <a href="/info/$productId" class="mx-2">
+                        <button class="text-emerald-500 background-transparent font-semibold uppercase py-1 outline-none focus:outline-none ease-linear transition-all duration-150 border border-emerald-500 rounded-lg">&nbspINFORMACIÓN&nbsp</button>
                     </a>
                 </div>
             </div>
@@ -54,7 +54,7 @@ class TarjetasView
         $sectionTitle = $section->nombre;
         $sectionHtml = <<<HTML
         <h2 class="my-3 flex items-center justify-center font-poppins text-[2em] font-bold leading-10 text-colorPrincipal_1">$sectionTitle</h2>
-        <div class="mx-[5px] px-2 gap-4 flex pb-[3%] justify-start items-center overflow-x-auto scrollbar-width-none -webkit-scrollbar -scroll-m-0 scroll-smooth scroll-snap-x-mandatory z-0 [&>div]:hover:backdrop:blur" id="container$section->id_unica">
+        <div class="mx-[5px] px-2 gap-4 flex pb-[3%] justify-start items-center overflow-x-auto scrollbar-width-none -webkit-scrollbar -scroll-m-0 scroll-smooth scroll-snap-x-mandatory [&>div]:hover:backdrop:blur cont" id="container$section->id_unica">
         HTML;
 
         foreach ($this->productos as $product) {

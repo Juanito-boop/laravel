@@ -1,11 +1,12 @@
 <header class="z-0 mx-2.5 mb-3 w-auto rounded-b-xl bg-magenta-500 pb-5">
   <div class="mb-[10px] flex items-center justify-evenly mx-auto">
-
-    <a href={{ route('home') }} class="inline-block p-3 rounded-md">
-      <img class="h-[120px] w-[120px]"
-        src="https://npuxpuelimayqrsmzqur.supabase.co/storage/v1/object/public/images/some/image-removebg-preview.svg"
-        alt="" />
-    </a>
+    <button class="">
+        <a href=>
+            <img class="h-[120px] w-[120px]"
+                 src="https://npuxpuelimayqrsmzqur.supabase.co/storage/v1/object/public/images/some/image-removebg-preview.svg"
+                 alt="" />
+        </a>
+    </button>
 
     <div class="inline-flex h-auto w-auto flex-col items-center justify-center">
       <div class="text-center text-[40px] font-semibold text-[black]">LOS VINOS</div>
@@ -17,7 +18,6 @@
             style="color: black"></em></div>
       </div>
     </div>
-
     <div class="relative mx-[50px] my-10" id="boton-menu">
       <img src="https://npuxpuelimayqrsmzqur.supabase.co/storage/v1/object/public/images/some/bars-solid.svg"
         id="icono-menu" alt="" class="w-10 cursor-pointer align-top" />
@@ -27,7 +27,7 @@
   </div>
   <form id="myForm" action="" method="POST"
     class="mx-auto inline-flex h-10 w-full items-center justify-evenly">
-    <div class="flex w-screen items-center justify-center p-5">
+    <div class="flex h-screen w-screen items-center justify-center p-5">
       <div class="w-full rounded-lg p-5">
         <div class="flex">
           <div
@@ -39,8 +39,8 @@
               </path>
             </svg>
           </div>
-          <input type="text" class="w-full bg-white pl-2 text-base font-semibold outline-0 border-violet-500"
-            placeholder="" id="" />
+          <input type="text" class="w-full bg-white pl-2 text-base font-semibold outline-0 border-violet-500" placeholder=""
+            id="" />
           <input type="button" value="Buscar"
             class="bg-violet-600 p-2 rounded-tr-lg rounded-br-lg text-white font-semibold hover:bg-violet-800 transition-colors" />
         </div>
@@ -48,5 +48,4 @@
     </div>
   </form>
 </header>
-
 <script src="https://npuxpuelimayqrsmzqur.supabase.co/storage/v1/object/public/images/js/menu.js"></script>

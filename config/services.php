@@ -31,4 +31,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'supabase' => [
+        'key' => env('APIKEY'),
+        'id' => env('ID_PROJECT'),
+    ],
 ];

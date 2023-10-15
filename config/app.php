@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
 return [
-
+    'APIKEY' => env('APIKEY', 'null'),
+    'ID_PROJECT' => env('ID_PROJECT', 'null'),
     /*
     |--------------------------------------------------------------------------
     | Application Name

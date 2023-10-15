@@ -1,4 +1,4 @@
-<section class="max-w-2xl mx-auto my-10">
+<section class="max-w-2xl mx-auto my-10 z-0">
   <div id="default-carousel" class="relative" data-carousel="static">
     <div class="relative h-56 overflow-hidden rounded-lg sm:h-64 xl:h-80 2xl:h-96">
       <div class="hidden duration-700 ease-in-out" data-carousel-item>
@@ -24,7 +24,7 @@
           class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
       </div>
     </div>
-    <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
+    <div class="absolute flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
       <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 1"
         data-carousel-slide-to="0"></button>
       <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
