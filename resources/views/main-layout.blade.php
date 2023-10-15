@@ -11,7 +11,7 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Poppins&family=Raleway&display=swap">
   @vite(['resources/css/app.css', 'resources/js/app.js'])
-  <link rel="stylesheet" href="css/output.css">
+  <link rel="stylesheet" href="https://npuxpuelimayqrsmzqur.supabase.co/storage/v1/object/public/images/css/output.css">
   <style>
     ::-webkit-scrollbar { display: none; }
     body {
