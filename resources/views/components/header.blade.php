@@ -40,7 +40,7 @@
             </svg>
           </div>
           <input type="text" class="w-full bg-white pl-2 text-base font-semibold outline-0 border-violet-500"
-            placeholder="" id="" />
+            placeholder="" id="" disabled />
           <input type="button" value="Buscar"
             class="bg-violet-600 p-2 rounded-tr-lg rounded-br-lg text-white font-semibold hover:bg-violet-800 transition-colors" />
         </div>

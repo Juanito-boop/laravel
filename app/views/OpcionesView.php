@@ -21,7 +21,7 @@ class OpcionesView
         foreach ($datosVariedades as $variedad) {
             $divId = $variedad->id;
             $divText = $variedad->variedad;
-            $html .= "<input type='checkbox' value='$divId' name='variedad[]'>&nbsp;<label>$divText</label><br>";
+            $html .= "<input type='checkbox' value='$divId' name='variedad[]' disableds>&nbsp;<label>$divText</label><br>";
         }
 
         return $html;
