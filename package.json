@@ -28,6 +28,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@supabase/supabase-js": "^2.38.1",
         "concurrently": "^8.2.0",
         "is-extglob": "^2.1.1",
         "tailwind-scrollbar-hide": "^1.1.7"

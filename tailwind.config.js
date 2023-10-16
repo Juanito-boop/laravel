@@ -109,7 +109,7 @@ export default {
         require('postcss'),
         require('flowbite/plugin'),
         // require('@tailwindcss/aspect-ratio'),
-        require("daisyui"),
+        // require("daisyui"),
     ],
 }
 

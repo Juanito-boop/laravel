@@ -36,7 +36,7 @@ class OpcionesView
         foreach ($datosPaises as $pais) {
             $divId = $pais->id;
             $divText = $pais->pais;
-            $html .= "<input type='checkbox' value='$divId' name='pais[]'>&nbsp;<label>$divText</label><br>";
+            $html .= "<input type='checkbox' value='$divId' name='pais[]' disabled>&nbsp;<label>$divText</label><br>";
         }
 
         return $html;
