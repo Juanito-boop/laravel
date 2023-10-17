@@ -27,11 +27,14 @@ class ProductsController extends Controller
         $opcionesPais = (new APIRestSupabaseController())->getDataTableLessParams(
             tabla: 'paises'
         );
+        $datosVariedad = (new APIRestSupabaseController())->getDataTableLessParams(
+            tabla: 'variedades'
+        );
 
         // Crear una instancia de la clase 'TarjetasView' y 'OpcionesView' con los datos obtenidos
         $vista = new TarjetasView(
             dataGetProductos: $datosVinos,
-            dataGetSecciones: $datosSecciones
+            dataGetSecciones: $datosVariedad
         ); // Tarjetas
         $opciones = new OpcionesView(
             dataGetVariedades: $opcionesVariedad,

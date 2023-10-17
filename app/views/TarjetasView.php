@@ -51,14 +51,14 @@ class TarjetasView
 
     private function renderSection(object $section): string
     {
-        $sectionTitle = $section->nombre;
+        $sectionTitle = $section->variedad;
         $sectionHtml = <<<HTML
-        <h2 class="my-3 flex items-center justify-center font-poppins text-[2em] font-bold leading-10 text-colorPrincipal_1">$sectionTitle</h2>
-        <div class="mx-[5px] px-2 gap-4 flex pb-[3%] justify-start items-center overflow-x-auto scrollbar-width-none -webkit-scrollbar -scroll-m-0 scroll-smooth scroll-snap-x-mandatory [&>div]:hover:backdrop:blur cont" id="container$section->id_unica">
+        <h2 class="my-3 flex items-center justify-center font-poppins text-[2em] font-bold leading-10 text-colorPrincipal_1 uppercase">$sectionTitle</h2>
+        <div class="mx-[5px] px-2 gap-4 flex pb-[3%] justify-start items-center overflow-x-auto scrollbar-width-none -webkit-scrollbar -scroll-m-0 scroll-smooth scroll-snap-x-mandatory [&>div]:hover:backdrop:blur cont" id="container$section->id">
         HTML;
 
         foreach ($this->productos as $product) {
-            if ($product->id_categoria === $section->id_unica) {
+            if ($product->variedad === $section->id) {
                 $sectionHtml .= $this->renderProductCard(product: $product);
             }
         }
@@ -73,7 +73,7 @@ class TarjetasView
     public function showProductCards(int $sectionId): void
     {
         foreach ($this->secciones as $section) {
-            if ($section->id_unica === $sectionId) {
+            if ($section->id === $sectionId) {
                 echo $this->renderSection(section: $section);
                 break;
             }
@@ -111,8 +111,8 @@ class TarjetasView
     {
         foreach ($this->secciones as $section) {
             echo "<article>";
-            $this->showProductCards(sectionId: $section->id_unica);
-            echo $this->renderPaginationButtons(sectionId: $section->id_unica);
+            $this->showProductCards(sectionId: $section->id);
+            echo $this->renderPaginationButtons(sectionId: $section->id);
             echo "</article>";
         }
     }

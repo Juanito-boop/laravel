@@ -26,7 +26,7 @@ class APIRestSupabaseController extends Controller
             'vinos' => "select=id,nombre,anada,bodega,region,precio,stock,tipo,nivel_alcohol,tipo_barrica,descripcion,notas_cata,temperatura_consumo,activo,id_unica,url_imagen,promocion,busqueda,maridaje,pais,paises(pais),id_categoria,secciones(nombre),variedad,variedades(variedad)&order=id.asc",
             'secciones' => "id_unica=neq.4&select=*",
             'paises' => 'select=*',
-            'variedades' => 'select=*'
+            'variedades' => 'id=neq.7&select=*'
         ];
 
         if (array_key_exists($tabla, $parametros)) {
