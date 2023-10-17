@@ -15,17 +15,34 @@ class ProductsController extends Controller
     public function index(): View
     {
         // Obtener los datos de las tablas 'vinos', 'secciones', 'variedades' y 'paises'
-        $datosVinos = (new APIRestSupabaseController())->getDataTableLessParams(tabla: 'vinos');
-        $datosSecciones = (new APIRestSupabaseController())->getDataTableLessParams(tabla: 'secciones');
-        $opcionesVariedad = (new APIRestSupabaseController())->getDataTableLessParams(tabla: 'variedades');
-        $opcionesPais = (new APIRestSupabaseController())->getDataTableLessParams(tabla: 'paises');
+        $datosVinos = (new APIRestSupabaseController())->getDataTableLessParams(
+            tabla: 'vinos'
+        );
+        $datosSecciones = (new APIRestSupabaseController())->getDataTableLessParams(
+            tabla: 'secciones'
+        );
+        $opcionesVariedad = (new APIRestSupabaseController())->getDataTableLessParams(
+            tabla: 'variedades'
+        );
+        $opcionesPais = (new APIRestSupabaseController())->getDataTableLessParams(
+            tabla: 'paises'
+        );
 
         // Crear una instancia de la clase 'TarjetasView' y 'OpcionesView' con los datos obtenidos
-        $vista = new TarjetasView(dataGetProductos: $datosVinos, dataGetSecciones: $datosSecciones); // Tarjetas
-        $opciones = new OpcionesView(dataGetVariedades: $opcionesVariedad, dataGetPaises: $opcionesPais); // Opciones
+        $vista = new TarjetasView(
+            dataGetProductos: $datosVinos,
+            dataGetSecciones: $datosSecciones
+        ); // Tarjetas
+        $opciones = new OpcionesView(
+            dataGetVariedades: $opcionesVariedad,
+            dataGetPaises: $opcionesPais
+        ); // Opciones
 
         // Retornar la vista 'index' con los datos en la variable $vista y $opciones
-        return view(view: 'index', data: compact('vista', 'opciones'));
+        return view(
+            view: 'index',
+            data: compact('vista', 'opciones')
+        );
     }
 
     /**
@@ -37,9 +54,14 @@ class ProductsController extends Controller
         $parametros = "id_unica=eq.$productoID&select=id,nombre,anada,bodega,region,precio,stock,tipo,nivel_alcohol,tipo_barrica,descripcion,notas_cata,temperatura_consumo,activo,id_unica,url_imagen,promocion,busqueda,maridaje,pais,paises(pais),id_categoria,secciones(nombre),variedad,variedades(variedad)";
 
         // Obtener los datos de la tabla 'vinos'
-        $datosVino = (new APIRestSupabaseController())->getDataTableParams(tabla: 'vinos', parametros: $parametros);
+        $datosVino = (new APIRestSupabaseController())->getDataTableParams(
+            tabla: 'vinos',
+            parametros: $parametros
+        );
 
-        return view(view: 'info', data: ['datosVino' => $datosVino]);
+        return view(
+            view: 'info',
+            data: ['datosVino' => $datosVino]
+        );
     }
-
 }

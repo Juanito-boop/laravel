@@ -1,3 +1,3 @@
 <section class="">
-    {!! $vista->showProductCardsWithPagination() !!}
+	{!! $vista->showProductCardsWithPagination() !!}
 </section>

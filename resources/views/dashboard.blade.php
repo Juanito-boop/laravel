@@ -4,8 +4,8 @@
 
 @section('content')
 
-<body class="w-screen h-screen bg-[#3d3d3d]">
-    
-</body>
+	<body class="h-screen w-screen bg-[#3d3d3d]">
+
+	</body>
 
 @endsection
