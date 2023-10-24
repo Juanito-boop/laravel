@@ -98,6 +98,10 @@ export default {
                 'auto-fit-290': 'repeat(auto-fit, minmax(290px, 1fr))',
                 'auto-fit-300': 'repeat(auto-fit, minmax(300px, 1fr))',
             },
+            screens: {
+                'opera': '1325px',  // opera screens
+                'edge': '1358px',  // edge screens
+            },
         },
     },
     plugins: [

@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Exception;
 use Illuminate\Support\Facades\Http;
-use Psr\Http\Message\ResponseInterface;
 
 class APIRestSupabaseController extends Controller
 {
@@ -18,50 +16,41 @@ class APIRestSupabaseController extends Controller
     }
 
     /**
-     * @throws Exception
+     * Realiza una solicitud GET a la API de Supabase sin parámetros personalizados.
+     *
+     * @param string $tabla El nombre de la tabla en la API de Supabase.
+     * @return mixed La respuesta de la API de Supabase o un mensaje de error.
      */
-    public function getDataTableLessParams(string $tabla): array|object|string
+    public function getDataTableLessParams(string $tabla)
     {
-        $parametros = [
-            'vinos' => "select=id,nombre,anada,bodega,region,precio,stock,tipo,nivel_alcohol,tipo_barrica,descripcion,notas_cata,temperatura_consumo,activo,id_unica,url_imagen,promocion,busqueda,maridaje,pais,paises(pais),id_categoria,secciones(nombre),variedad,variedades(variedad)&order=id.asc",
-            'secciones' => "id_unica=neq.4&select=*",
+        $endpoints = [
+            'vinos' => 'select=id,nombre,anada,bodega,region,precio,stock,tipo,nivel_alcohol,tipo_barrica,descripcion,notas_cata,temperatura_consumo,activo,id_unica,url_imagen,promocion,busqueda,maridaje,pais,paises(pais),id_categoria,secciones(nombre),variedad,variedades(variedad)&order=id.asc',
+            'secciones' => 'id_unica=neq.4&select=*',
             'paises' => 'select=*',
             'variedades' => 'id=neq.7&select=*'
         ];
 
-        if (array_key_exists($tabla, $parametros)) {
-            // Realizar la petición a la API
-            $response = Http::withHeaders([
-                'apikey' => $this->apiKey,
-                'Authorization' => 'Bearer ' . $this->apiKey
-            ])->get("https://{$this->idProject}.supabase.co/rest/v1/$tabla?" . $parametros[$tabla]);
+        if (array_key_exists($tabla, $endpoints)) {
+            $url = "https://{$this->idProject}.supabase.co/rest/v1/$tabla?" . $endpoints[$tabla];
 
-            // Obtener la respuesta JSON como cadena de texto
-            $responseObject = json_decode($response->body());
-
-            // Retornar la respuesta JSON
-            return $responseObject;
-        } else {
-            return "no es una tabla válida/ no es el esquema correcto";
+            return $this->makeRequest('GET', $url);
         }
+
+        return "No es una tabla válida o no es el esquema correcto";
     }
 
     /**
-     * @throws Exception
+     * Realiza una solicitud GET a la API de Supabase con parámetros personalizados.
+     *
+     * @param string $tabla El nombre de la tabla en la API de Supabase.
+     * @param string $parametros Los parámetros de consulta personalizados.
+     * @return mixed La respuesta de la API de Supabase o un mensaje de error.
      */
-    public function getDataTableParams(string $tabla, string $parametros): array|object|string
+    public function getDataTableParams(string $tabla, string $parametros)
     {
-        // Realizar la petición a la API
-        $response = Http::withHeaders([
-            'apikey' => $this->apiKey,
-            'Authorization' => 'Bearer ' . $this->apiKey
-        ])->get("https://{$this->idProject}.supabase.co/rest/v1/$tabla?$parametros");
+        $url = "https://{$this->idProject}.supabase.co/rest/v1/$tabla?$parametros";
 
-        // Obtener la respuesta JSON como array asociativo
-        $responseObject = $response->json();
-
-        // Retornar la respuesta JSON
-        return $responseObject;
+        return $this->makeRequest('GET', $url);
     }
 
     /**
@@ -69,24 +58,17 @@ class APIRestSupabaseController extends Controller
      *
      * @param string $tabla El nombre de la tabla en la API de Supabase.
      * @param array $data Los datos a enviar en la solicitud POST.
-     * @return ResponseInterface|string|null La respuesta de la API de Supabase o un mensaje de error.
-     * @throws Exception
+     * @return mixed La respuesta de la API de Supabase o un mensaje de error.
      */
-    public function postDataTable(string $tabla, array $data): ResponseInterface|string|null
+    public function postDataTable(string $tabla, array $data)
     {
-        try {
-            return Http::withHeaders([
-                'apikey' => $this->apiKey,
-                'Authorization' => 'Bearer ' . $this->apiKey,
-                'Content-Type' => 'application/json',
-                'Prefer' => 'return=minimal'
-            ])->post(
-                    "https://{$this->idProject}.supabase.co/rest/v1/$tabla",
-                    json_encode($data)
-                );
-        } catch (Exception $e) {
-            return $e->getMessage();
-        }
+        $url = "https://{$this->idProject}.supabase.co/rest/v1/$tabla";
+        $headers = [
+            'Content-Type' => 'application/json',
+            'Prefer' => 'return=minimal'
+        ];
+
+        return $this->makeRequest('POST', $url, $data, $headers);
     }
 
     /**
@@ -96,24 +78,17 @@ class APIRestSupabaseController extends Controller
      * @param string $columna El nombre de la columna para filtrar los registros.
      * @param string $valor El valor para filtrar los registros.
      * @param array $datos Los datos a enviar en la solicitud PATCH.
-     * @return ResponseInterface|string|null La respuesta de la API de Supabase o un mensaje de error.
-     * @throws Exception
+     * @return mixed La respuesta de la API de Supabase o un mensaje de error.
      */
-    public function patchDataTable(string $tabla, string $columna, string $valor, array $datos): ResponseInterface|string|null
+    public function patchDataTable(string $tabla, string $columna, string $valor, array $datos)
     {
-        try {
-            $url = "https://{$this->idProject}.supabase.co/rest/v1/$tabla?$columna=eq.$valor";
-            $headers = [
-                'apikey' => $this->apiKey,
-                'Authorization' => 'Bearer ' . $this->apiKey,
-                'Content-Type' => 'application/json',
-                'Prefer' => 'return=minimal'
-            ];
+        $url = "https://{$this->idProject}.supabase.co/rest/v1/$tabla?$columna=eq.$valor";
+        $headers = [
+            'Content-Type' => 'application/json',
+            'Prefer' => 'return=minimal'
+        ];
 
-            return Http::withHeaders($headers)->patch($url, $datos);
-        } catch (Exception $e) {
-            return $e->getMessage();
-        }
+        return $this->makeRequest('PATCH', $url, $datos, $headers);
     }
 
     /**
@@ -122,20 +97,36 @@ class APIRestSupabaseController extends Controller
      * @param string $tabla El nombre de la tabla en la API de Supabase.
      * @param string $columna El nombre de la columna para filtrar los registros.
      * @param string $valor El valor para filtrar los registros.
-     * @return ResponseInterface|string|null La respuesta de la API de Supabase o un mensaje de error.
-     * @throws Exception
+     * @return mixed La respuesta de la API de Supabase o un mensaje de error.
      */
-    public function deleteDataTable(string $tabla, string $columna, string $valor): ResponseInterface|string|null
+    public function deleteDataTable(string $tabla, string $columna, string $valor)
+    {
+        $url = "https://{$this->idProject}.supabase.co/rest/v1/$tabla?$columna=eq.$valor";
+
+        return $this->makeRequest('DELETE', $url);
+    }
+
+    /**
+     * Realiza una solicitud HTTP genérica.
+     *
+     * @param string $method El método HTTP (GET, POST, PATCH, DELETE).
+     * @param string $url La URL de la solicitud.
+     * @param array|null $data Los datos a enviar en la solicitud (para métodos POST y PATCH).
+     * @param array $headers Los encabezados de la solicitud.
+     * @return mixed La respuesta de la API de Supabase o un mensaje de error.
+     */
+    private function makeRequest(string $method, string $url, array $data = null, array $headers = [])
     {
         try {
-            $url = "https://{$this->idProject}.supabase.co/rest/v1/$tabla?$columna=eq.$valor";
-            $headers = [
+            $headers = array_merge($headers, [
                 'apikey' => $this->apiKey,
                 'Authorization' => 'Bearer ' . $this->apiKey
-            ];
+            ]);
 
-            return Http::withHeaders($headers)->delete($url);
-        } catch (Exception $e) {
+            $response = Http::withHeaders($headers)->$method($url, $data);
+
+            return json_decode($response->body());
+        } catch (\Exception $e) {
             return $e->getMessage();
         }
     }

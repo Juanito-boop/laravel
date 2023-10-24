@@ -903,10 +903,6 @@ video {
     gap: 0.75rem
 }
 
-.gap-4 {
-    gap: 1rem
-}
-
 .gap-\[0\.64px\] {
     gap: 0.64px
 }
@@ -1260,11 +1256,6 @@ video {
     color: rgb(255 255 255 / var(--tw-text-opacity))
 }
 
-.text-color3 {
-    --tw-text-opacity: 1;
-    color: rgb(143 4 50 / var(--tw-text-opacity))
-}
-
 .text-color8 {
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity))
@@ -1452,6 +1443,26 @@ video {
 @media (min-width: 1280px) {
     .xl\:h-80 {
         height: 20rem
+    }
+}
+
+@media (min-width: 1325px) {
+    .opera\:gap-1 {
+        gap: 0.25rem
+    }
+}
+
+@media (min-width: 1358px) {
+    .edge\:gap-3 {
+        gap: 0.75rem
+    }
+
+    .edge\:gap-3\.5 {
+        gap: 0.875rem
+    }
+
+    .edge\:gap-4 {
+        gap: 1rem
     }
 }
 
