@@ -1,6 +1,5 @@
 @extends('main-layout')
 
-{{-- @dd($datosVino) --}}
 @foreach ($datosVino as $data)
 
 	@section('title', $data->nombre . ' - ' . $data->variedades->variedad)
@@ -8,8 +7,10 @@
 	@section('content')
 		<body class="h-[100hv] bg-colorPrincipal_2 font-inconsolata">
 			<x-menu />
+
 			<div id="principal" class="pb-3">
 				<x-header />
+                
 				<div class="mx-2.5 flex flex-row justify-center rounded-xl bg-color11 p-3">
 					<aside class="w-[50%]">
 						<img src="{{ $data->url_imagen }}" alt="{{ $data->nombre . '-' . $data->variedades->variedad }}"
@@ -52,6 +53,6 @@
 					</main>
 				</div>
 			</div>
-        </body>
+		</body>
     @endsection
 @endforeach
