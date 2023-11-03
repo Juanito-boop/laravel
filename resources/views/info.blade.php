@@ -5,16 +5,16 @@
 	@section('title', $data->nombre . ' - ' . $data->variedades->variedad)
 
 	@section('content')
-		<body class="h-[100hv] bg-colorPrincipal_2 font-inconsolata">
+		<body class="bg-colorPrincipal_2 font-inconsolata ">
 			<x-menu />
 
 			<div id="principal" class="pb-3">
 				<x-header />
-                
+
 				<div class="mx-2.5 flex flex-row justify-center rounded-xl bg-color11 p-3">
 					<aside class="w-[50%]">
 						<img src="{{ $data->url_imagen }}" alt="{{ $data->nombre . '-' . $data->variedades->variedad }}"
-							class="mx-auto mt-3 h-auto w-[90%]">
+							class="mx-auto mt-3 h-auto w-[90%] ">
 					</aside>
 					<main
 						class="ml-2.5 flex w-[50%] flex-col gap-2.5 rounded-br-[10px] rounded-tr-[10px] border-l border-l-colorPrincipal_1 bg-[#7f1a77] pb-2 pl-2 pt-0 font-poppins text-[20px]">

@@ -10,14 +10,17 @@
 
 	<link rel="icon" type="image/png"
 		href="https://npuxpuelimayqrsmzqur.supabase.co/storage/v1/object/public/images/some/image-removebg-preview.svg">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+	<link rel="preconnect"
+		href="https://fonts.googleapis.com">
+	<link rel="preconnect"
+		href="https://fonts.gstatic.com">
 	<link rel="stylesheet"
-		href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Poppins&family=Raleway&display=swap">
-	@vite(['resources/css/app.css', 'resources/js/app.js'])
-	<link rel="stylesheet" href="https://npuxpuelimayqrsmzqur.supabase.co/storage/v1/object/public/images/css/main.css">
-    {{-- <link rel="stylesheet" href="/css/output.css"> --}}
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" >
+	@vite('resources/css/app.css')
 	<style>
 		::-webkit-scrollbar {
 			display: none;

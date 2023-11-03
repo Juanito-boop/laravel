@@ -15,8 +15,6 @@
         @component('components.aside', ['opciones' => $opciones])
         @endcomponent
         <main class="scroll-none mx-[10px] max-w-[84%] rounded-[10px] bg-color11">
-          {{-- componente slider --}}
-          <x-slider />
           {{-- tarjetas --}}
           @component('components.tarjetas', ['vista' => $vista])
           @endcomponent

@@ -62,7 +62,7 @@ class TarjetasView
         return <<<HTML
             <h2 class="my-3 flex items-center justify-center font-poppins text-[2em] font-bold leading-10 text-colorPrincipal_1 uppercase">$sectionTitle</h2>
             <div class="mx-[5px] pb-[3%] items-center overflow-x-auto scrollbar-width-none -webkit-scrollbar -scroll-m-0 scroll-smooth scroll-snap-x-mandatory cont" id="container$sectionId">
-                <section class="flex opera:gap-1 edge:gap-3.5 px-2 justify-start [&>div]:hover:backdrop:blur">
+                <section class="flex opera:gap-1.5 edge:gap-3.5 px-2 justify-start [&>div]:hover:backdrop:blur">
                     $sectionHtml
                 </section>
             </div>
